@@ -37,5 +37,11 @@ public class MainActivity extends AppCompatActivity {
 
             tvResult.setText(String.format("BMI: %.2f", bmi));
         });
+        Button exitButton = findViewById(R.id.button);
+
+        exitButton.setOnClickListener(v -> {
+            finishAffinity();
+        });
+
     }
 }
