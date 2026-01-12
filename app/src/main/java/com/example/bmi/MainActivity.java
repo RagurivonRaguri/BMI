@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
             double height = Double.parseDouble(etHeight.getText().toString());
             double bmi = weight / (height * height);
 
-            tvResult.setText("BMI: " + bmi);
+            tvResult.setText(String.format("BMI: %.2f", bmi));
         });
     }
 }
