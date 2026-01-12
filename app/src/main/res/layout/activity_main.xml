@@ -75,11 +75,11 @@
         android:id="@+id/tvResult"
         android:layout_width="80sp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="28dp"
         android:text="@string/result"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.13"
+        app:layout_constraintHorizontal_bias="0.151"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnCalculate" />
 
@@ -87,15 +87,33 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="96dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="104dp"
-        android:layout_marginBottom="364dp"
         android:text="Exit app"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.111"
         app:layout_constraintStart_toEndOf="@+id/tvResult"
-        app:layout_constraintTop_toBottomOf="@+id/btnCalculate" />
+        app:layout_constraintTop_toBottomOf="@+id/btnCalculate"
+        app:layout_constraintVertical_bias="0.339" />
+
+    <TextView
+        android:id="@+id/tvStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Status: --"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.736"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvResult" />/>
+
+
+    <!--    <TextView-->
+<!--        android:id="@+id/tvStatus"-->
+<!--        android:layout_width="102dp"-->
+<!--        android:layout_height="29dp"-->
+<!--        android:text="Status"-->
+<!--        tools:layout_editor_absoluteX="211dp"-->
+<!--        tools:layout_editor_absoluteY="341dp" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

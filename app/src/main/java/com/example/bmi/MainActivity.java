@@ -29,14 +29,47 @@ public class MainActivity extends AppCompatActivity {
         EditText etHeight = findViewById(R.id.etHeight);
         Button btnCalculate = findViewById(R.id.btnCalculate);
         TextView tvResult = findViewById(R.id.tvResult);
+        TextView tvStatus = findViewById(R.id.tvStatus);
+
 
         btnCalculate.setOnClickListener(v -> {
-            double weight = Double.parseDouble(etWeight.getText().toString());
-            double height = Double.parseDouble(etHeight.getText().toString());
+            String weightStr = etWeight.getText().toString();
+            String heightStr = etHeight.getText().toString();
+
+            if (weightStr.isEmpty() || heightStr.isEmpty()) {
+                tvResult.setText("BMI: --");
+                tvStatus.setText("Status: --");
+                return;
+            }
+
+            double weight = Double.parseDouble(weightStr);
+            double height = Double.parseDouble(heightStr);
+
+            if (weight <= 0 || height <= 0) {
+                tvResult.setText("BMI: --");
+                tvStatus.setText("Status: --");
+                return;
+            }
+
             double bmi = weight / (height * height);
 
+            // Display BMI value
             tvResult.setText(String.format("BMI: %.2f", bmi));
+
+            // Display BMI category
+            String status;
+            if (bmi < 18.5) {
+                status = "Underweight";
+            } else if (bmi < 25) {
+                status = "Normal";
+            } else if (bmi < 30) {
+                status = "Overweight";
+            } else {
+                status = "Obese";
+            }
+            tvStatus.setText("Status: " + status);
         });
+
         Button exitButton = findViewById(R.id.button);
 
         exitButton.setOnClickListener(v -> {
