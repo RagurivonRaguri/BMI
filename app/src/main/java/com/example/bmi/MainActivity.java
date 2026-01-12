@@ -59,6 +59,17 @@ public class MainActivity extends AppCompatActivity {
 
             // Display BMI category
 
+            String status;
+            if(bmi< 18.5){
+                status = "Underweight";
+            } else if (bmi < 24.9){
+                status = "Normal";
+            }else if (bmi < 29.9){
+                status = "Overweight";
+            } else {
+                status = "Obese";
+            }
+
             tvStatus.setText("Status: " + status);
         });
 
