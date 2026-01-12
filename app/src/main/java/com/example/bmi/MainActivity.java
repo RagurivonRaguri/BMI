@@ -10,6 +10,7 @@ import androidx.core.view.WindowInsetsCompat;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -76,5 +77,36 @@ public class MainActivity extends AppCompatActivity {
             finishAffinity();
         });
 
+    }
+
+    private boolean validateInputs(String weightStr, String heightStr) {
+
+        if (weightStr.isEmpty() || heightStr.isEmpty()) {
+            Toast.makeText(this, "Please enter both weight and height", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        try {
+            // Parse input values to double
+            double weight = Double.parseDouble(weightStr);
+            double height = Double.parseDouble(heightStr);
+
+            // Check whether height and weight are greater than zero
+            if (weight <= 0 || height <= 0) {
+                Toast.makeText(this, "Weight and height must be greater than 0", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+            //Height limit
+            if (height > 3.0) {
+                Toast.makeText(this, "Height seems too large (should be in meters)", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+
+            return true;
+
+        } catch (NumberFormatException e) {
+            Toast.makeText(this, "Please enter valid numbers", Toast.LENGTH_SHORT).show();
+            return false;
+        }
     }
 }
